@@ -3,8 +3,6 @@
 class Radio
 {
     private $name;
-    private $value = [];
-    private $lbl = [];
     private $mas = [];
     private $chkd;
 
@@ -12,31 +10,22 @@ class Radio
     {
         $this -> name = $name;
         $this -> mas = $mas;
-        foreach ($mas as $col)
-        {
-            $this -> value = $col[1];
-            $this -> lbl = $col[0];
-        }
-        $this -> chkd = isset($_GET[$this-> value]) ? 'checked' : '';
+        $this -> chkd = isset($_GET[$this-> name]) ? $_GET[$this-> name] : '';
     }
 
     public function addItem($colorName, $color)
     {
         $this -> mas[] = [$colorName, $color];
-        foreach ($this -> mas as $col)
-        {
-            $this -> value = $col[1];
-            $this -> lbl = $col[0];    
-        }
     }
 
     public function __toString()
     {   $str='';
         foreach ($this -> mas as $col)
         {
-            $str .= '<input type="radio" name="' . $this -> name . '" value="'.$this->value = $col[1].'" ' . $this->chkd . '><label>'.$this ->lbl = $col[0].'</label><br>';
+            $ch = ($this->chkd==$col[1])?'checked':'';
+            $str .= '<input type="radio" name="' . $this -> name . '" value="'.$this->value = $col[1].'" ' . $ch . '><label>'.$this ->lbl = $col[0].'</label><br>';
         }
-        
         return $str;
     }
+
 }

@@ -55,6 +55,10 @@ require_once 'radio.php';
     <?=$years -> getValue(); ?>
     <br>
     <?=$month -> getValue(); ?>
+
+    <!-- <input type="text" name="user"> -->
+
+
     
 </body>
 </html>
