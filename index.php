@@ -25,6 +25,14 @@ require_once 'radio.php';
     $month -> addItem('February', '1');
 
     $checkbox = new Checkbox('agree' ,'1');
+
+    $r = [['red', '#f00'],
+         ['green', '#0f0']];
+    $radioBtns = new Radio('color', $r);
+         
+    // $radioBtns -> addItem('green', '#0f0');
+    // $radioBtns -> addItem('red', '#f00');
+    $radioBtns -> addItem('blue', '#00f');
     //echo $years;
     //echo $month;
     ?>
@@ -37,7 +45,10 @@ require_once 'radio.php';
         <!-- <input type="checkbox"> -->
         Check: <?=$checkbox?>
         <br>
-
+        Radio: <br>
+        <?=$radioBtns?>
+        
+        <br>
         <input type="submit">
     </form>
 
